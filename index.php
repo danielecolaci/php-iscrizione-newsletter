@@ -1,18 +1,17 @@
 <?php
 
+include 'function.php';
+
 $email = $_GET['email'];
 
-/* var_dump($_GET);
-var_dump(isset($email)); */
-
 if (isset($email)) {
-
-    if (str_contains($email, '@') && str_contains($email, '.')) {
+    if (checkEmail($email)) {
         echo 'ok';
-    } else{
+    } else {
         echo 'fail';
     }
-};
+}
+
 ?>
 
 <!DOCTYPE html>
