@@ -1,6 +1,18 @@
 <?php
 
+$email = $_GET['email'];
 
+/* var_dump($_GET);
+var_dump(isset($email)); */
+
+if (isset($email)) {
+
+    if (str_contains($email, '@') && str_contains($email, '.')) {
+        echo 'ok';
+    } else{
+        echo 'fail';
+    }
+};
 ?>
 
 <!DOCTYPE html>
@@ -21,8 +33,8 @@
                         <h2 class="card-title mb-4 text-center">Iscriviti alla nostra Newsletter 😃📧</h2>
                         <form action="" method="get">
                             <div class="mb-4">
-                                <label for="email" class="form-label">Inserisci la tua mail</label>
-                                <input type="email" required class="form-control" name="email">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" required class="form-control" name="email" id="email" placeholder="Inserisci la tua mail">
                             </div>
                             <button type="submit" class="btn btn-success">Iscriviti</button>
                         </form>
