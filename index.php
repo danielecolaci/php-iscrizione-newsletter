@@ -6,9 +6,9 @@ $email = $_GET['email'];
 
 if (isset($email)) {
     if (checkEmail($email)) {
-        echo 'ok';
+        echo '<div class="alert alert-success w-50 my-5 mx-auto" role="alert">Email valida! Grazie per esserti iscritto alla nostra Newsletter!</div>';
     } else {
-        echo 'fail';
+        echo '<div class="alert alert-danger w-50 my-5 mx-auto" role="alert">Email non valida! Riprova con un indirizzo email valido.</div>';
     }
 }
 
