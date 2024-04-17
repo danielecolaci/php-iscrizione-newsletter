@@ -6,9 +6,9 @@ $email = $_GET['email'];
 
 if (isset($email)) {
     if (checkEmail($email)) {
-        echo '<div class="alert alert-success w-50 my-5 mx-auto" role="alert">Email valida! Grazie per esserti iscritto alla nostra Newsletter!</div>';
+        header ('Location: success.php');
     } else {
-        echo '<div class="alert alert-danger w-50 my-5 mx-auto" role="alert">Email non valida! Riprova con un indirizzo email valido.</div>';
+        $alert = '<div class="alert alert-danger" role="alert">Email non valida! Riprova con un indirizzo email valido.</div>';
     }
 }
 
@@ -30,6 +30,7 @@ if (isset($email)) {
                 <div class="card col-md-6 p-5">
                     <div class="card-body">
                         <h2 class="card-title mb-4 text-center">Iscriviti alla nostra Newsletter 😃📧</h2>
+                        <?php echo isset($alert) ? $alert : ''; ?>
                         <form action="" method="get">
                             <div class="mb-4">
                                 <label for="email" class="form-label">Email</label>
@@ -42,5 +43,11 @@ if (isset($email)) {
             
         </div>
     </div>
+
+    <script>
+    setTimeout(function() {
+        document.querySelector('.alert-danger').style.display = 'none';
+    }, 5000);
+</script>
 </body>
 </html>
